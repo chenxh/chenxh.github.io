@@ -58,7 +58,6 @@ JAVA_HOME=F:\files\Java\jdk-12.0.1
 到 {源码目录}\server\src\main\resources\config\modules\transport-netty4
 
 5. 修改jdk 的java 的 conf/sercurity/java.policy 文件，添加以下配置
-
 ```
     permission java.lang.RuntimePermission "createClassLoader"; 
     permission java.lang.RuntimePermission "getClassLoader"; 
@@ -67,5 +66,4 @@ JAVA_HOME=F:\files\Java\jdk-12.0.1
     permission java.util.PropertyPermission "*", "read";
     permission java.util.PropertyPermission "*", "write";
 ```
-
 6. 启动 org.elasticsearch.bootstrap.Bootstrap 的main 函数
