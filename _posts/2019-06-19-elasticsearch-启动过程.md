@@ -95,7 +95,6 @@ Bootstrap.init 的init函数。
 
 ## Bootstrap 启动
 1. 通过 injector 获取各个类的对象，调用 start() 方法启动（实际进入各个类的中 doStart 方法）: LifecycleComponent、IndicesService、IndicesClusterStateService、SnapshotsService、SnapshotShardsService、RoutingService、SearchService、MonitorService、NodeConnectionsService、ResourceWatcherService、GatewayService、Discovery、TransportService。
-
 * IndicesService：索引管理 
 * IndicesClusterStateService：跨集群同步 
 * SnapshotsService：负责创建快照 
@@ -106,6 +105,7 @@ Bootstrap.init 的init函数。
 * NodeConnectionsService：此组件负责在节点添加到群集状态后连接到节点，并在删除它们时断开连接。 此外，它会定期检查所有连接是否仍处于打开状态，并在需要时还原它们。 请注意，如果节点断开/不响应ping，则此组件不负责从群集中删除节点。 这是由NodesFaultDetection完成的。 主故障检测由链接MasterFaultDetection完成。 
 * ResourceWatcherService：通用资源观察器服务 
 * GatewayService：网关
+
 2. 集群发现，加入集群
 3. 启动 HttpServerTransport, 绑定服务端口。
 4. 启动保活线程 keepAliveThread.start 进行心跳检测。
