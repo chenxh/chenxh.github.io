@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      elasticsearch启动流程 
-subtitle:   elasticsearch启动流程分析
+title:      elasticsearch 插件
+subtitle:   elasticsearch 插件介绍和加载源码分析
 date:       2019-06-22
 author:     chencoder
 catalog: 	true
