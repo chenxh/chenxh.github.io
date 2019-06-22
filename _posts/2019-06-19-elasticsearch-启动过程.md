@@ -46,7 +46,6 @@ if (status != ExitCodes.OK) {
 4. 创建Elasticsearch对象 
 ![Elasticsearch类结构](https://chenxh.github.io/img/elasticsearch-class.png  "图片title")
 5. 执行ElasticSearch的main方法(继承于Command)
-
 1. Elasticsearch() 构造方法中读取命令行中的参数。
 2. Command.main 方法, 该方法给当前Runtime类添加一个hook线程，该线程作用是：当Runtime异常关闭时打印异常信息.
 3. Command.mainWithoutErrorHandling 方法
@@ -71,7 +70,6 @@ Bootstrap.init 的init函数。
 ### INSTANCE.setup()函数
 9. spawner.spawnNativeControllers(environment), 遍历每个模块，生成本机控制类（native Controller）：读取modules文件夹下所有的文件夹中的模块信息，保存为一个 PluginInfo 对象，为合适的模块生成控制类，通过 Files.isRegularFile(spawnPath) 来判断。 尝试为给定模块生成控制器(native Controller)守护程序。 生成的进程将通过其stdin，stdout和stderr流保持与此JVM的连接，但对此包之外的代码不能使用对这些流的引用。 ?
 10. initializeNatives 初始化本地资源.
-
 * 检查用户是否为root用户，是则抛异常; 
 * 尝试启用 系统调用过滤器 system call filter; ?
 * Natives 设置参数等。Natives类是一个包装类，用于检查调用本机方法所需的类是否在启动时可用。如果它们不可用，则此类将避免调用加载这些类的代码。
