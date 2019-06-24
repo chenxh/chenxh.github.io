@@ -3,7 +3,7 @@ title: chencoder Blog
 SEOTitle: blog of chencoder|  Blog
 header-img: img/post-bg-desk.jpg
 # email: qiubaiying@gmail.com
-description: "Every failure is leading towards success."
+description: "study for myself , write for everyone who likes"
 keyword: "chencoder, spark, elasticsearch, hadoop, bigdata"
 url: "http://chenxh.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
@@ -11,7 +11,7 @@ baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Goals determine what you going to be!"
+sidebar-about-description: "study for myself , write for everyone who likes."
 # sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 

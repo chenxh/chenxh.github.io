@@ -15,9 +15,9 @@ note:本文基于elasticsearch 7.2版本.
 
 ## HttpServer的启动过程
 
-### TransportService 构造
+### HttpServerTransport 构造
 
-TransportService 的构造是在Node构造函数中完成的。
+HttpServerTransport 的构造是在Node构造函数中完成的。
 Node.node()中代码如下:
 ```
             final RestController restController = actionModule.getRestController(); //操作对应的处理控制器
@@ -34,16 +34,18 @@ Node.node()中代码如下:
 * Transport transport 通过NetworkModule获取的Transport的具体实现。
 
 ### RestController
-RestController 从ActionModule中获取。Rest请求的地址和处理函数通过
+RestController 是从ActionModule中获取。 Rest请求的处理函数是通过下面的代码初始化的。
+
 Node.node()
 ```
- logger.debug("initializing HTTP handlers ...");
+ 			logger.debug("initializing HTTP handlers ...");
             actionModule.initRestHandlers(() -> clusterService.state().nodes());
             logger.info("initialized");
 ```
-注册。
+
 
 例如get操作:
+
 ActionModule.initRestHandlers
 ```
 registerHandler.accept(new RestGetAction(settings, restController));
@@ -75,7 +77,8 @@ RestGetAction.RestGetAction()
             throw new IllegalStateException("Unsupported transport.type [" + name + "]");
         }
 ```
-先从settings中查找TRANSPORT_TYPE_KEY的设置。settings 是elasticsearch启动流程中提到的，PluginService在扫描完成所有的module目录和plugin目录之后，收集所有的插件的additionalSettings的内容。
+先从settings中查找TRANSPORT_TYPE_KEY的设置。
+settings 是elasticsearch启动流程中提到的，PluginService在扫描完成所有的module目录和plugin目录之后，收集所有的插件的additionalSettings的内容。
 然后根据settings中的配置，获取到的Transport实现。
 
 例如：Netty4Plugin，使用Netty实现的NetworkPlugin。
@@ -127,9 +130,9 @@ networkModule.getHttpServerTransportSupplier().get();
 
 ### HttpServerTransport 启动
 
-HttpServerTransport 的启动是Node.start()中完成。
-有多种不同HttpServerTransport实现类。
-Netty4HttpServerTransport 使用netty实现HttpServer， 请求通过Netty4HttpRequestHandler来处理。Netty的使用可以参看Netty文档。
+* HttpServerTransport 的启动是Node.start()中完成。
+* 有多种不同HttpServerTransport实现类。
+* Netty4HttpServerTransport 使用netty实现HttpServer， 请求通过Netty4HttpRequestHandler来处理。Netty的使用可以参看Netty文档。
 
 Netty4HttpRequestHandler.channelRead0()
 ```
