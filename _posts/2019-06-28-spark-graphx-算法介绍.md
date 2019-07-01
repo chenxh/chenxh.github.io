@@ -10,6 +10,8 @@ tags:
     - graph
 ---
 
+## 前言
+
 spark graphx 是基于pregel模型实现的各种图像算法工具包。
 
 
@@ -496,6 +498,3 @@ object StronglyConnectedComponents {
 
 }
 ```
-
-
-
