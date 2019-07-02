@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      spark graphx 算法介绍 
-subtitle:   elasticsearch启动流程分析
+subtitle:   spark graphx 算法介绍 
 date:       2019-06-28
 author:     chencoder
 catalog: 	true

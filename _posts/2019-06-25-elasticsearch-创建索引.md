@@ -9,4 +9,11 @@ tags:
     - elasticsearch
 ---
 
+## 前言
+上回分析了elasticsearch的http请求的处理流程。最终的处理都通过一系列的Action类实现，这些类都继承了BaseRestHandler。
+
+今天以bulk接口为例，分析以下索引的创建过程。
+
+
+
 
